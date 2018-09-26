@@ -6,30 +6,36 @@
 //  Copyright © 2018 nil. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 fileprivate struct URLs {
     static let appsURL = "http://phobos.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=100/json"
 }
 
-enum AppsResult {
+enum AppListResult {
     case success([App])
-    case error
+    case failure(Error)
+}
+
+enum ImageResult {
+    case success(UIImage)
+    case failure(Error)
 }
 
 struct APIClient {
     
-    private static let session = URLSession(configuration: .default)
-    enum DateError: String, Error {
-        case invalidDate
-    }
-    static func fetchPaidApps(completion: @escaping (AppsResult) -> Void) {
+    private let session = URLSession(configuration: .default)
+    private let imageStore = ImageStore()
+    
+    func fetchPaidAppList(completion: @escaping (AppListResult) -> Void) {
         guard let url = URL(string: URLs.appsURL) else { return }
         let task = session.dataTask(with: url) {
             (data, response, error) in
             
             guard let responseData = data else {
-                completion(.error)
+                if let error = error {
+                    completion(.failure(error))
+                }
                 return
             }
             
@@ -41,17 +47,53 @@ struct APIClient {
                 
                 let appList = AppList(from: appListService)
                 
-                for app in appList.apps {
-                    let string = app.publisher + " " + String(describing: app.publisherUrl) + "\n\n"
-                    debugPrint(string)
+                DispatchQueue.main.async {
+                    completion(.success(appList.apps))
                 }
                 
             } catch {
-                print(error.localizedDescription)
+                completion(.failure(error))
             }
             
         }
         task.resume()
+    }
+    
+    func fetchImage(for app: App, completion: @escaping (ImageResult) -> Void) {
+        
+        let appKey = app.bundleId
+        if let image = imageStore.image(forKey: appKey) {
+            DispatchQueue.main.async {
+                completion(.success(image))
+            }
+            return
+        }
+        
+        let iconUrl = app.iconUrl
+        let request = URLRequest(url: iconUrl)
+        
+        let task = session.dataTask(with: request) {
+            (data, response, error) in
+            
+            let result = self.processImageRequest(data: data, error: error)
+            
+            if case let .success(image) = result {
+                self.imageStore.setImage(image, forKey: appKey)
+            }
+            
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+        task.resume()
+    }
+    
+    private func processImageRequest(data: Data?, error: Error?) -> ImageResult {
+        guard let imageData = data,
+            let image = UIImage(data: imageData) else {
+                return .failure(error!)
+        }
+        return .success(image)
     }
 }
 

@@ -20,7 +20,7 @@ struct AppListService: Decodable {
         
         struct AppService: Decodable {
             let titleDict: Label
-            let imageUrlArray: [ImageUrlDict]
+            let iconUrlArray: [IconUrlDict]
             let bundleIdDict: BundleIdDict
             let releaseDateDict: ReleaseDateDict
             let summary: Label
@@ -30,7 +30,7 @@ struct AppListService: Decodable {
             
             enum CodingKeys: String, CodingKey {
                 case titleDict = "im:name"
-                case imageUrlArray = "im:image"
+                case iconUrlArray = "im:image"
                 case bundleIdDict = "id"
                 case releaseDateDict = "im:releaseDate"
                 case summary
@@ -43,7 +43,7 @@ struct AppListService: Decodable {
                 let label: String
             }
             
-            struct ImageUrlDict: Decodable {
+            struct IconUrlDict: Decodable {
                 let label: URL
                 let attributes: ImageHeight
                 

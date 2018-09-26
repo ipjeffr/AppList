@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum ImageSize: Int {
+enum IconSize: Int {
     case small = 0 // 53x53
     case medium // 75x75
     case large // 100x100
@@ -21,7 +21,7 @@ struct AppList {
         var appsTemp: [App] = []
         for app in service.feed.apps {
             let title = app.titleDict.label
-            let imageUrl = app.imageUrlArray[ImageSize.medium.rawValue].label
+            let iconUrl = app.iconUrlArray[IconSize.large.rawValue].label
             let bundleId = app.bundleIdDict.attributes.id
             let releaseDate = app.releaseDateDict.date
             let summary = app.summary.label
@@ -32,9 +32,8 @@ struct AppList {
             let publisher = app.publisherDict.label
             let publisherUrl = app.publisherDict.attributes.href
             
-            
             let newApp = App(title: title,
-                             imageUrl: imageUrl,
+                             iconUrl: iconUrl,
                              bundleId: bundleId,
                              releaseDate: releaseDate,
                              summary: summary,
@@ -53,7 +52,7 @@ struct AppList {
 
 struct App {
     let title: String
-    let imageUrl: URL
+    let iconUrl: URL
     let bundleId: String
     let releaseDate: Date
     let summary: String
