@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -38,7 +39,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5h4-Bs-aFg">
                                                     <rect key="frame" x="8" y="16" width="64" height="64"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="64" id="4p5-qn-9DA"/>
+                                                        <constraint firstAttribute="width" secondItem="5h4-Bs-aFg" secondAttribute="height" multiplier="1:1" id="RGb-x9-fQ4"/>
                                                         <constraint firstAttribute="width" constant="64" id="Yqa-Vc-xuK"/>
                                                     </constraints>
                                                 </imageView>
@@ -56,8 +57,8 @@
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yXZ-fT-aJy" secondAttribute="trailing" constant="16" id="PCj-sc-rmz"/>
                                                 <constraint firstItem="yXZ-fT-aJy" firstAttribute="leading" secondItem="5h4-Bs-aFg" secondAttribute="trailing" constant="16" id="SOL-fC-V8f"/>
                                                 <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="yXZ-fT-aJy" secondAttribute="bottom" constant="8" id="T3Z-P1-JM4"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="5h4-Bs-aFg" secondAttribute="bottom" constant="8" id="gir-CV-oX2"/>
-                                                <constraint firstItem="5h4-Bs-aFg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="PYY-dE-SjP" secondAttribute="top" constant="8" id="h2g-Ng-bYG"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="5h4-Bs-aFg" secondAttribute="bottom" priority="750" constant="8" id="gir-CV-oX2"/>
+                                                <constraint firstItem="5h4-Bs-aFg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="PYY-dE-SjP" secondAttribute="top" priority="750" constant="8" id="h2g-Ng-bYG"/>
                                                 <constraint firstItem="5h4-Bs-aFg" firstAttribute="leading" secondItem="PYY-dE-SjP" secondAttribute="leading" constant="8" id="q6K-oM-K3s"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -113,7 +114,7 @@
                                                     <rect key="frame" x="8" y="20.5" width="100" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="3U6-q7-1tr"/>
-                                                        <constraint firstAttribute="height" constant="100" id="8YS-qJ-5Wi"/>
+                                                        <constraint firstAttribute="width" secondItem="byR-n7-3bk" secondAttribute="height" multiplier="1:1" id="Qhc-Cn-IdZ"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="1ox-8S-qPA">
@@ -142,9 +143,9 @@
                                                 <constraint firstAttribute="bottom" secondItem="1ox-8S-qPA" secondAttribute="bottom" constant="16" id="8XA-Lx-QFb"/>
                                                 <constraint firstItem="byR-n7-3bk" firstAttribute="leading" secondItem="Ix1-z8-7VU" secondAttribute="leading" constant="8" id="BAE-yj-01P"/>
                                                 <constraint firstItem="1ox-8S-qPA" firstAttribute="centerY" secondItem="Ix1-z8-7VU" secondAttribute="centerY" id="IIH-gW-ZSM"/>
-                                                <constraint firstItem="byR-n7-3bk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ix1-z8-7VU" secondAttribute="top" constant="8" id="ZKC-1o-WxX"/>
+                                                <constraint firstItem="byR-n7-3bk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ix1-z8-7VU" secondAttribute="top" priority="750" constant="8" id="ZKC-1o-WxX"/>
                                                 <constraint firstItem="1ox-8S-qPA" firstAttribute="leading" secondItem="byR-n7-3bk" secondAttribute="trailing" constant="16" id="c23-kB-b90"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="byR-n7-3bk" secondAttribute="bottom" constant="8" id="h2n-uO-TN9"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="byR-n7-3bk" secondAttribute="bottom" priority="750" constant="8" id="h2n-uO-TN9"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1ox-8S-qPA" secondAttribute="trailing" constant="16" id="iWe-7I-v9S"/>
                                                 <constraint firstItem="byR-n7-3bk" firstAttribute="centerY" secondItem="Ix1-z8-7VU" secondAttribute="centerY" id="wt8-g8-ohm"/>
                                             </constraints>
