@@ -54,7 +54,6 @@ struct APIClient {
             } catch {
                 completion(.failure(error))
             }
-            
         }
         task.resume()
     }
@@ -96,8 +95,3 @@ struct APIClient {
         return .success(image)
     }
 }
-
-//let formatter = DateFormatter()
-//formatter.dateFormat = "MM/dd/YYYY"
-//let string = formatter.string(from: appList.apps[0].releaseDate)
-//print(string)

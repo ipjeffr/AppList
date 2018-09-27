@@ -17,7 +17,7 @@ class AppListTableViewCell: UITableViewCell {
         super.awakeFromNib()
         update(with: nil)
     }
-
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         update(with: nil)
@@ -25,12 +25,8 @@ class AppListTableViewCell: UITableViewCell {
     
     func update(with image: UIImage?) {
         if let image = image {
-            UIView.animate(withDuration: 0.5, animations: {
-                self.iconImageView.alpha = 1.0
-                self.iconImageView.image = image
-            })
+            iconImageView.image = image
         } else {
-            iconImageView.alpha = 0.0
             iconImageView.image = nil
         }
     }

@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		4F6840A3215BCA1700E2D493 /* AppListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6840A2215BCA1700E2D493 /* AppListViewController.swift */; };
 		4F6840A5215BD29200E2D493 /* AppListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6840A4215BD29200E2D493 /* AppListTableViewCell.swift */; };
+		4F6840A7215C080B00E2D493 /* AppListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6840A6215C080B00E2D493 /* AppListDetailViewController.swift */; };
+		4F6840AD215C0E3300E2D493 /* AppListDetailTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6840AC215C0E3300E2D493 /* AppListDetailTitleTableViewCell.swift */; };
+		4F6840B0215C14CC00E2D493 /* AppListDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6840AF215C14CC00E2D493 /* AppListDetailTableViewCell.swift */; };
+		4F6840B2215C197000E2D493 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F6840B1215C197000E2D493 /* Default-568h@2x.png */; };
+		4F6840B4215C3D9B00E2D493 /* AppListDetailCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6840B3215C3D9B00E2D493 /* AppListDetailCellBuilder.swift */; };
 		4F6950C7215B430E0019A606 /* AppList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6950C6215B430E0019A606 /* AppList.swift */; };
 		4F6950C9215B43160019A606 /* AppListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6950C8215B43160019A606 /* AppListService.swift */; };
 		4F6950CC215B47ED0019A606 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6950CB215B47ED0019A606 /* ImageStore.swift */; };
@@ -22,6 +27,11 @@
 /* Begin PBXFileReference section */
 		4F6840A2215BCA1700E2D493 /* AppListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppListViewController.swift; sourceTree = "<group>"; };
 		4F6840A4215BD29200E2D493 /* AppListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppListTableViewCell.swift; sourceTree = "<group>"; };
+		4F6840A6215C080B00E2D493 /* AppListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppListDetailViewController.swift; sourceTree = "<group>"; };
+		4F6840AC215C0E3300E2D493 /* AppListDetailTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppListDetailTitleTableViewCell.swift; sourceTree = "<group>"; };
+		4F6840AF215C14CC00E2D493 /* AppListDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppListDetailTableViewCell.swift; sourceTree = "<group>"; };
+		4F6840B1215C197000E2D493 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		4F6840B3215C3D9B00E2D493 /* AppListDetailCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppListDetailCellBuilder.swift; sourceTree = "<group>"; };
 		4F6950C6215B430E0019A606 /* AppList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppList.swift; sourceTree = "<group>"; };
 		4F6950C8215B43160019A606 /* AppListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppListService.swift; sourceTree = "<group>"; };
 		4F6950CB215B47ED0019A606 /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
@@ -45,11 +55,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4F6950CA215B43760019A606 /* Networking */ = {
+		4F6840A8215C0D3D00E2D493 /* Model Objects */ = {
 			isa = PBXGroup;
 			children = (
 				4F6950C6215B430E0019A606 /* AppList.swift */,
 				4F6950C8215B43160019A606 /* AppListService.swift */,
+			);
+			path = "Model Objects";
+			sourceTree = "<group>";
+		};
+		4F6840A9215C0D5300E2D493 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4F6840A2215BCA1700E2D493 /* AppListViewController.swift */,
+				4F6840A6215C080B00E2D493 /* AppListDetailViewController.swift */,
+				4F6840B5215C419100E2D493 /* Helper Objects */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4F6840AA215C0D7100E2D493 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4F6840B1215C197000E2D493 /* Default-568h@2x.png */,
+				4FF1A5A72159D0F000FA72FF /* Assets.xcassets */,
+				4FF1A5A92159D0F000FA72FF /* LaunchScreen.storyboard */,
+				4FF1A5AC2159D0F000FA72FF /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4F6840AB215C0D8000E2D493 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4F6840A4215BD29200E2D493 /* AppListTableViewCell.swift */,
+				4F6840AE215C0E3800E2D493 /* App List Detail Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4F6840AE215C0E3800E2D493 /* App List Detail Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4F6840AC215C0E3300E2D493 /* AppListDetailTitleTableViewCell.swift */,
+				4F6840AF215C14CC00E2D493 /* AppListDetailTableViewCell.swift */,
+			);
+			path = "App List Detail Cells";
+			sourceTree = "<group>";
+		};
+		4F6840B5215C419100E2D493 /* Helper Objects */ = {
+			isa = PBXGroup;
+			children = (
+				4F6840B3215C3D9B00E2D493 /* AppListDetailCellBuilder.swift */,
+			);
+			path = "Helper Objects";
+			sourceTree = "<group>";
+		};
+		4F6950CA215B43760019A606 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
 				4FF1A5B22159D0FD00FA72FF /* APIClient.swift */,
 				4F6950CB215B47ED0019A606 /* ImageStore.swift */,
 			);
@@ -77,12 +141,11 @@
 			children = (
 				4FF1A5A02159D0F000FA72FF /* AppDelegate.swift */,
 				4F6950CA215B43760019A606 /* Networking */,
-				4F6840A2215BCA1700E2D493 /* AppListViewController.swift */,
-				4F6840A4215BD29200E2D493 /* AppListTableViewCell.swift */,
+				4F6840A8215C0D3D00E2D493 /* Model Objects */,
+				4F6840AB215C0D8000E2D493 /* Views */,
+				4F6840A9215C0D5300E2D493 /* Controllers */,
 				4FF1A5A42159D0F000FA72FF /* Main.storyboard */,
-				4FF1A5A72159D0F000FA72FF /* Assets.xcassets */,
-				4FF1A5A92159D0F000FA72FF /* LaunchScreen.storyboard */,
-				4FF1A5AC2159D0F000FA72FF /* Info.plist */,
+				4F6840AA215C0D7100E2D493 /* Resources */,
 			);
 			path = "App List";
 			sourceTree = "<group>";
@@ -146,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FF1A5AB2159D0F000FA72FF /* LaunchScreen.storyboard in Resources */,
+				4F6840B2215C197000E2D493 /* Default-568h@2x.png in Resources */,
 				4FF1A5A82159D0F000FA72FF /* Assets.xcassets in Resources */,
 				4FF1A5A62159D0F000FA72FF /* Main.storyboard in Resources */,
 			);
@@ -158,7 +222,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F6840B0215C14CC00E2D493 /* AppListDetailTableViewCell.swift in Sources */,
 				4FF1A5A12159D0F000FA72FF /* AppDelegate.swift in Sources */,
+				4F6840A7215C080B00E2D493 /* AppListDetailViewController.swift in Sources */,
+				4F6840B4215C3D9B00E2D493 /* AppListDetailCellBuilder.swift in Sources */,
+				4F6840AD215C0E3300E2D493 /* AppListDetailTitleTableViewCell.swift in Sources */,
 				4F6950C7215B430E0019A606 /* AppList.swift in Sources */,
 				4F6840A5215BD29200E2D493 /* AppListTableViewCell.swift in Sources */,
 				4FF1A5B32159D0FD00FA72FF /* APIClient.swift in Sources */,
@@ -310,7 +378,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y2BZHEV555;
-				INFOPLIST_FILE = "App List/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/App List/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -329,7 +397,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y2BZHEV555;
-				INFOPLIST_FILE = "App List/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/App List/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

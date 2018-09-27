@@ -43,11 +43,7 @@
 	</array>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
-	<key>NSAppTransportSecurity</key>
-	<dict/>
-	<key>NSExceptionDomains</key>
-	<string>http://phobos.apple.com/</string>
-	<key>NSIncludesSubdomains</key>
-	<true/>
+	<key>CFBundleDisplayName</key>
+	<string></string>
 </dict>
 </plist>

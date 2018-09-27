@@ -57,6 +57,7 @@ class AppListViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        presentAppListDetailViewController(for: apps[indexPath.row])
     }
     
     // MARK: - TableView Helper Functions
@@ -66,11 +67,13 @@ class AppListViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     private func showTableView() {
-        spinner.stopAnimating()
-        UIView.animate(withDuration: 0.5, animations: {
+        DispatchQueue.main.async {
             [weak self] in
-            self?.tableView.isHidden = false
-        })
+            self?.spinner.stopAnimating()
+            UIView.animate(withDuration: 0.5, animations: {
+                self?.tableView.isHidden = false
+            })
+        }
     }
     
     // MARK: - Networking Completion Actions
@@ -86,7 +89,9 @@ class AppListViewController: UIViewController, UITableViewDataSource, UITableVie
             }
             
             self?.showTableView()
-            self?.tableView.reloadData()
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }
     }
     
@@ -101,5 +106,13 @@ class AppListViewController: UIViewController, UITableViewDataSource, UITableVie
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    // MARK: - Navigation
+    private func presentAppListDetailViewController(for app: App) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let appListDetailVC = storyboard.instantiateViewController(withIdentifier: "AppListDetailViewController") as! AppListDetailViewController
+        appListDetailVC.app = app
+        navigationController?.pushViewController(appListDetailVC, animated: true)
     }
 }
